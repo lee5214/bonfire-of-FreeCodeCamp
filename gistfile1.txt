@@ -1,0 +1,20 @@
+function diff(arr1, arr2) {
+  var arr=[];//array to store the output elements
+  
+  //2 sections, use {obj.indexOf(notInclude) ==> return false} to get the different elements in 2 arrays
+  
+  // below for arr2
+  for(var i=0;i<arr2.length;i++){
+    if(arr1.indexOf(arr2[i])<0){
+      arr.push(arr2[i]);
+    }
+  }
+  // below for array1
+  for(var i=0;i<arr1.length;i++){
+    if(arr2.indexOf(arr1[i])<0){
+     arr.push(arr1[i]);
+    } 
+  }
+  return arr;
+}
+diff(['a','b','c','d','e','f'], ['a','b','c','d']);
