@@ -1,0 +1,18 @@
+function unite(arr1, arr2, arr3) {
+  var arr=[];
+  for(var j=0;j<arguments.length;j++){
+    arr.push(arguments[j]);//push all the arguments(special type like array) into an array
+    //console.log(arguments[j]);
+  }
+  //console.log(arr);
+  arr= arr.reduce(function(a, b) {//this function use reduce()+concat() to merge the elements of arrays into one array
+    return a.concat(b);})
+  var arr1=[];
+  for(var i=0;i<arr.length;i++){
+    if(arr1.indexOf(arr[i])<0){ //use indexOf() to compare
+      arr1.push(arr[i]);
+    }
+  }return arr1;
+}
+
+unite([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
