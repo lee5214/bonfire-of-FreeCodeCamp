@@ -1,0 +1,5 @@
+function convert(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g,       '&quot;').replace(/'/,'&apos;');// just replace the chars with thier html entities
+}
+
+convert('Dolce & Gabbana');
