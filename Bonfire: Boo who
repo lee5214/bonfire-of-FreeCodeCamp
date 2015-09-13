@@ -1,0 +1,16 @@
+function boo(bool) {
+  //return bool==Boolean?true:false; //notice that for bool=true or false, this will return false, so need typeof()="boolean"
+  return typeof(bool)=="boolean"?true:false;
+}
+boo(true);
+
+/*
+assert.strictEqual(boo(true), true);
+assert.strictEqual(boo(false), true);
+assert.strictEqual(boo([1, 2, 3]), false);
+assert.strictEqual(boo([].slice), false);
+assert.strictEqual(boo({ 'a': 1 }), false);
+assert.strictEqual(boo(1), false);
+assert.strictEqual(boo(NaN), false);
+assert.strictEqual(boo('a'), false);
+*/
