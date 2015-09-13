@@ -1,0 +1,25 @@
+function convert(num) {
+  var roman=[];
+  var ten=num/10;
+  if (ten>0){
+    var t=ten;
+    while(t>1){
+    roman.push("X");
+    t--;
+    }
+  }
+  
+  var one=num%10;
+  if(one<5){
+    for(var i=0;i<one;i++){roman.push("I");}
+  }
+  if(one==5){ roman.push("V");}
+  else if(one==9){ roman.push("IX");}
+  else if(one>5){roman.push("V");
+                 for(var j=0;j<one-5;j++){roman.push("I");}
+                }
+  
+  return roman.join('');
+  
+}
+convert(99);
