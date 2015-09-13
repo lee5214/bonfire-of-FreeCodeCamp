@@ -1,0 +1,23 @@
+function pair(str) {
+  var ar= new Array();
+  var str1 = str.split('');
+  var arr=[['A','T'],['C','G']];
+    for(var i=0;i<arr.length;i++){
+      for(var j=0;j<str1.length;j++){
+        if( arr[i].indexOf(str1[j]) >= 0){
+            //var tof = arr[i].indexOf(str1[j]) ==> return the value true or false indicate the position in current arr[x][y]
+            // console.log("i:  "+i +"  j : "+j+ "   "+"reverse：" + arr[i][1-tof]+"  tof:  "+tof);
+                   str1.splice(j,1,arr[i][1-arr[i].indexOf(str1[j])]);
+                      console.log(str1);
+        }
+      }  
+    }
+  //combine the two array into [[],[]] 
+  for(var z=0;z<str.length;z++){
+    ar[z]= new Array();//change array from 1-d to 2-d
+    ar[z][0] = str[z];
+    ar[z][1] = str1[z];
+  }
+    return ar;
+}
+pair("TTGAG");
