@@ -1,0 +1,20 @@
+function where(collection, source) {
+  var arr = [];
+  var key= Object.keys(source);
+  for (var name in collection){
+    var counter=0; //use to detecte if all the valuses are equal
+    for(var i=0;i<key.length;i++){
+      if(collection[name][key[i]]==source[key[i]]){//just treat collection[name] and source are both single object; 
+                                                   //key[i] will get single value of a,b,c...
+        counter++;
+      }
+    }
+    if(counter==key.length){//only when all elements in source are equal
+      arr.push(collection[name]);
+    }
+  }
+  return arr;
+}
+
+
+where([{ 'a': 1, 'b': 2 }, { 'a': 1 }, { 'a': 1, 'b': 2, 'c': 2 }], { 'b': 2,'a': 1 });
