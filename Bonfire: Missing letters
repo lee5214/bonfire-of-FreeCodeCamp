@@ -1,0 +1,11 @@
+function fearNotLetter(str) {
+  for(var i=0;i<str.length-1;i++){ //if i=str.length, in <4> while() loop the charCodeAt(i+1) will be null 
+   // console.log(str.charCodeAt(i)); get the missing charCode's unicode value
+    while(str.charCodeAt(i+1)-str.charCodeAt(i)!==1){
+      return String.fromCharCode(str.charCodeAt(i)+1);//return the char(Unicode value)
+    }
+  }
+  return undefined;//if while doesnt return, means no value for output
+}
+
+fearNotLetter('abce');
