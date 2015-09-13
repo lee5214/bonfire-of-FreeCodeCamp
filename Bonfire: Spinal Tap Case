@@ -1,0 +1,5 @@
+function spinalCase(str) {
+    //(/\B([A-Z]+\w)/g,' $1'); //\B means only the (...) with boundry counts, so if a space before a capital char, the whole word (which can be written as $1) will be replaced by " word"  
+    return str.replace(/\B([A-Z]+\w)/g,' $1').toLowerCase().replace(/\s/g, "-").replace(/_/g, "");
+}
+spinalCase('Teletubbies say Eh-oh');
