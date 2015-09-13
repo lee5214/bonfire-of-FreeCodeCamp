@@ -1,0 +1,19 @@
+function translate(str) {
+   var yuan=['a','e','i','o','u'];//array of vowels
+   str1=str.split('');//string to array
+   //if str[0]==Vowel, add way to the end
+   if(yuan.indexOf(str1[0]) >= 0){
+   str1.splice(str1.length,0,"way");
+   return str1.join('');
+   }
+   //else get the pointer of substring of consonants(from 0), then use sbstr()to manipulate the argument str
+   else{
+     for(var i=0;i<yuan.length;i++){
+      if( yuan.indexOf(str1[i])>=0){
+        vow=str1.indexOf(str1[i]);//the pointer of first vowel
+        return str.substr(vow,str1.length-1)+str.substr(0,vow)+"ay";//substr() used for String
+      }
+     }  
+   } 
+}
+translate("california");
