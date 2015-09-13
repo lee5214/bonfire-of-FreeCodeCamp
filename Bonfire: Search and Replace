@@ -1,0 +1,16 @@
+function replace(str, before, after) {
+ str=str.split(' ');//seperate into array
+  if(before[0]>='A' && before[0]<='Z'){//if before's firstChar is Capital, then use regEX to return after with firstChar Capital
+    after=after.replace(/\b\w+\b/g,function(word){
+              return word.substring(0,1).toUpperCase() + word.substring(1);
+         });
+  } 
+  for(var i=0;i<str.length;i++){//word replacing function
+    if(str[i]===before){
+      str.splice(i,1,after);
+    };
+  }
+ return str.join(' ');//array to string
+}
+
+replace("He is Sleeping on the couch", "Sleeping", "sitting");
