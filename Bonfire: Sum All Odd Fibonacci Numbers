@@ -1,0 +1,33 @@
+function sumFibs(num) {
+  var addup=0; //hold all the numbers added
+  var rec = function(currentNum, nextNum, fibN) { //recursive function to do the math
+        if (fibN == 0||fibN<currentNum) { //when num=0 return 0, when current number>num, end recursive and return result
+            return addup;
+        } else if(currentNum%2 !== 0 && currentNum<=num){//when curr is odd and curr<= num
+            addup += currentNum; //resoult add curr
+            console.log("current: " + currentNum+"  addup:" + addup);//debug   
+          }return rec(nextNum, currentNum+nextNum, fibN);
+            
+        }
+  return rec(1, 1, num);
+}
+
+//second way to solve this
+/*
+function sumFibs(num) {
+    var prevNumber = 0;
+    var currNumber = 1;
+    var result = 0;
+    while (currNumber <= num) {
+        if (currNumber % 2 !== 0) {
+            result += currNumber;
+        }
+        var added = currNumber + prevNumber;
+        prevNumber = currNumber;
+        currNumber = added;
+    }
+
+    return result;
+}
+*/
+sumFibs(10000);
