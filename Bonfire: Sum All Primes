@@ -1,0 +1,27 @@
+function sumPrimes(num) {
+  var addUp=0;
+  var arr=[2];
+  //below is a fn that checks if a num is dividable by the elements in arr || already exisits in arr==> both return false
+  function check(n1,arr1){
+    for(var i=0;i<arr1.length;i++){
+      if(n1%arr1[i]==0 || arr1.indexOf(n1)>=0){
+        return false;
+      }
+    }
+    return true;
+  }
+  //if check() return true, push the new primeNum into arr, so the new num will divide it too
+  for(var i=2;i<=num;i++){
+    if(check(i,arr)==true){
+      arr.push(i);
+      console.log(i);
+    }
+  }
+  //loop to add all the primeNum 
+  for(var i=0; i<arr.length;i++){
+    addUp +=arr[i];
+  }
+  return addUp;
+}
+
+sumPrimes(977);
