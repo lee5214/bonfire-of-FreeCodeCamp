@@ -1,0 +1,18 @@
+function steamroller(arr) {
+  var newArr=[]; 
+  return rec(arr);
+  
+  //recursive fn, check if every elements inside is an array, push to newArr if not an array (and not empty)
+  function rec(arr1){
+    for(var i=0;i<arr1.length;i++){
+      if (Array.isArray(arr1[i])!=true){//no need add && 
+        //console.log(arr1[i]);
+        newArr.push(arr1[i]);
+      }
+      else{//must have else, or infinity check
+        rec(arr1[i]);
+      }  
+    }return newArr;
+  }
+}
+steamroller([[[1,2], {}, [3, [[4]]]]]);
