@@ -1,0 +1,16 @@
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+
+  
+  for(var i=0;i<arr.length;i++){
+    var orbit = arr[i]["avgAlt"]+earthRadius;
+    //period=2pi*(a^3/GM)^.5; fomula
+    var period = Math.round(2*Math.PI*Math.pow(Math.pow(orbit,3)/GM,0.5));//Math.round:四舍五入后最接近的整数 Math.ceil:此数后面的那个整数
+    delete arr[i]["avgAlt"];//remove key, will also remove the value
+    arr[i]["orbitalPeriod"]=period;
+  }
+  return arr;
+ 
+}
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
