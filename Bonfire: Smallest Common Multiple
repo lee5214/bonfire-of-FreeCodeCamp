@@ -12,7 +12,6 @@ function smallestCommons(arr) {
     position=i-1;
     rec(i,arr1,1,position);
     //console.log(rec(i,arr1,1,position));//weird when replace it with the next line, check the display
-    rec(i,arr1,1,position);
   }
   
   //multiple all numbers through the array, return value
