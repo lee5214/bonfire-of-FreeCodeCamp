@@ -1,0 +1,12 @@
+function drop(arr, func) {
+  var times = arr.length;//because the arr.length is changing, so have to get its value first
+  for (var i = 0; i < times; i++) {
+    if (func(arr[0])==true) {
+      break;//if return arr here, then if all func(arr[i])== false, it will return undefined
+    } else {
+      arr.shift();//remove the arr[0];
+    }
+  }
+  return arr;
+}
+drop([1, 2, 3], function(n) {return n < 3; });
