@@ -1,0 +1,17 @@
+function binaryAgent(str) {
+  var a=[];//store the chars
+  var arr=str.split(' ');//string into array
+  for(var i=0;i<arr.length;i++){
+    var temp = parseInt(arr[i],2);//binary(二进制) to decimal(十进制) 
+    a.push(String.fromCharCode(temp));//the decimal numbers are the unicode, reverse back to char then push to a
+  }
+  return a.join('');
+}
+/*Tip:
+(int).toString(16); // converts int to hex, eg 12 => "C"
+(int).toString(8);  // converts int to octal, eg. 12 => "14"
+parseInt(string,16) // converts hex to int, eg. "FF" => 255
+parseInt(string,8) // converts octal to int, eg. "20" => 16
+*/
+
+binaryAgent('01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111');
