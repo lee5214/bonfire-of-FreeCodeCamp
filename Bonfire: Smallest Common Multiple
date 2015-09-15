@@ -1,0 +1,39 @@
+function smallestCommons(arr) {  
+  arr.sort(function(a, b){return a-b;});//sort in numerical order
+
+  //all numbers into arr1
+  var arr1=[];
+  arr1.push(arr[0]);
+  for(var i=arr[0]+1;i<=arr[1]-arr[0];i++){arr1.push(i);};
+  arr1.push(arr[1]);
+  
+  // to call rec() to get the array of multipliers
+  for(var i=1;i<arr1.length;i++){
+    position=i-1;
+    rec(i,arr1,1,position);
+    //console.log(rec(i,arr1,1,position));
+      //rec(i,arr1,1,position);
+  }
+  
+  //multiple all numbers through the array, return value
+  var multiUp=arr1[0];
+  for(var i=0;i<arr1.length;i++){
+    multiUp *= arr1[i];
+  }
+  return multiUp;
+  
+ //recusive fn checks position(range:[arr[first]-arr[last]]) if the num can be divided, return the answer back to argument (num), 
+ //then continue checking from the last position.if done, return the array as final result
+  function rec(num,array,index,position){
+    for(var i=index;i<position;i++){
+      if(num%array[i]==0){
+        var div=array[i];
+        array.splice(position,1,num/div);
+        console.log(array +  "  index:  "+arr.indexOf(arr[i])+"  div:  "+div);
+       return rec(num/div,array,i+1,position);
+      }
+    }return array; 
+  }
+  //
+}
+smallestCommons([5,1]);
