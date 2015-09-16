@@ -1,0 +1,16 @@
+function telephoneCheck(str) {
+  //parseInt():str to int, but still need isNaN() to check if it's a number
+  if(isNaN(parseInt(str.substring(0,1)))==true&&str[0]!="("){//check if str[0] not a num or "("
+    return false;
+  };
+  //remove all non-num
+  str=str.replace(/\D/gi,"");
+  if(str.length<10||str.length>11||(str[0]!=5&&str[0]!=1)){
+    return false;
+  }
+  return true;
+}
+
+
+
+telephoneCheck("-15555555555");
