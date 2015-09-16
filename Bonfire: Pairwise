@@ -1,0 +1,15 @@
+function pairwise(arr, arg) {
+  var arr1=[];//store the indexs for pairs
+  for(var i=0;i<arr.length/2;i++){ //only need check i in [0,arr.length/2]
+    for(var j=i+1;j<arr.length;j++){ //j=i+1 so j in [i+1,arr.length] won't pair the number checked
+      if(arr[i]+arr[j]==arg){
+        arr1.push(i);
+        arr1.push(j);
+        delete arr[i];//delete won't change the size of arr
+        delete arr[j];
+      }
+    }
+  }return arr1.reduce(function(a,b){return a+b;},0);//reduce(): to recursively get the sum of arr
+}
+
+pairwise([1,1,1], 2);
