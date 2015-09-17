@@ -1,0 +1,31 @@
+// in A but not in B
+function relative_complement(A, B) { //AB对比,去掉A里AB都有的
+    return A.filter(function(elem) {
+      return B.indexOf(elem) == -1
+    });
+  }
+  
+  // in A or in B but not in both //去掉A和B里的重复项 (即A或B)
+  function symmetric_difference(A,B) {
+      return relative_complement(A,B).concat(relative_complement(B,A));
+  }
+  
+
+  //用遍历index和filter去false的方法去掉array里重复的元素
+function unique(arr) {
+  return arr.filter(function(elem, pos) {
+    return arr.indexOf(elem) == pos;
+  });
+}
+
+function sym(args) {
+  var arg = [].slice.call(arguments);
+  //arg.map(unique) delete all the dunplicated eles in the SAME array
+  return arg.map(unique).reduce(function(A, B) {//map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
+    console.log(A+"           "+B);
+    return symmetric_difference(A,B);
+    //相等于relative_complement(previous, current).concat(relative_complement(current, previous));
+    //return the unique value only in A or B
+  });
+}
+sym([1, 2, 5], [2, 3, 5], [4, 4, 5,4,3,2,1,8,7,9,8],[1,2,3,4,5]);
